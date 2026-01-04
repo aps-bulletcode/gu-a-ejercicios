@@ -1,27 +1,22 @@
 /* =====================
-   RESET Y VARIABLES
+   RESET Y BASE
 ===================== */
 :root {
   --primary: #2563eb;
   --primary-dark: #1e40af;
   --accent: #10b981;
+  --gold: #d97706;
   --bg: #f8fafc;
-  --text-main: #1e293b;
-  --text-muted: #64748b;
+  --text: #1e293b;
   --white: #ffffff;
-  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   background-color: var(--bg);
-  color: var(--text-main);
+  color: var(--text);
   line-height: 1.6;
 }
 
@@ -32,121 +27,43 @@ body {
 }
 
 /* =====================
-   HERO SECTION
+   HERO / CABECERA
 ===================== */
 .hero {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
   color: white;
-  padding: 60px 20px;
   text-align: center;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  margin-bottom: 30px;
-  box-shadow: var(--shadow);
+  padding: 50px 20px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-bottom: 25px;
 }
 
-.hero h1 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-  letter-spacing: -0.025em;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
+.hero h1 { font-size: 2rem; margin-bottom: 5px; }
+.hero p { opacity: 0.9; font-size: 1.1rem; }
 
 /* =====================
-   INTRO & CARDS
+   ESTILO DE TARJETAS
 ===================== */
-.intro-text {
-  text-align: center;
-  padding: 20px;
-  color: var(--text-muted);
-  font-size: 1.1rem;
-}
+.intro-text { text-align: center; padding: 20px; font-size: 1.1rem; color: #475569; }
 
 .section-card {
   background: var(--white);
-  padding: 24px;
+  padding: 25px;
   border-radius: 20px;
   margin-bottom: 20px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
 }
 
-.section-card h2 {
-  font-size: 1.4rem;
-  margin-bottom: 16px;
-  color: var(--primary-dark);
-}
+.section-card h2 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.4rem; }
 
 /* =====================
-   ACCORDION
-===================== */
-.accordion-container {
-  margin-bottom: 30px;
-}
-
-.accordion {
-  background-color: var(--white);
-  color: var(--text-main);
-  cursor: pointer;
-  padding: 20px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  font-size: 1.1rem;
-  font-weight: 600;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 15px;
-  margin-bottom: 10px;
-  box-shadow: var(--shadow);
-  transition: all 0.3s ease;
-}
-
-.accordion:hover {
-  transform: translateY(-2px);
-  background-color: #f1f5f9;
-}
-
-.accordion.active {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-bottom: 0;
-  color: var(--primary);
-}
-
-/* Plus/Minus Icon */
-.icon::after {
-  content: '+';
-  font-size: 1.5rem;
-  color: var(--primary);
-}
-.accordion.active .icon::after {
-  content: '−';
-}
-
-.panel {
-  background: var(--white);
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  margin-bottom: 15px;
-  padding: 0 20px;
-}
-
-/* =====================
-   EXERCISE GRID
+   EJERCICIOS (SOLUCIÓN IMÁGENES)
 ===================== */
 .grid-exercises {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 25px;
   padding: 20px 0;
 }
 
@@ -155,25 +72,19 @@ body {
 }
 
 .exercise {
-  background: #f8fafc;
-  padding: 12px;
-  border-radius: 12px;
   text-align: center;
-  border: 1px solid #e2e8f0;
+  background: none; /* ELIMINADO FONDO GRIS */
 }
 
 .exercise img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  width: 100%;       /* Ocupa el ancho disponible */
+  height: auto;      /* Mantiene la proporción natural (No corta) */
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 12px;
 }
 
-.exercise p {
-  font-size: 0.95rem;
-  font-weight: 600;
-}
+.exercise p { font-weight: 700; font-size: 1rem; }
 
 .reps {
   display: block;
@@ -183,73 +94,77 @@ body {
 }
 
 /* =====================
-   HIGHLIGHT CARD (COLÁGENO)
+   ACCORDION
 ===================== */
-.highlight-card {
-  border: 2px solid var(--accent);
-  position: relative;
-  overflow: hidden;
+.accordion {
+  background: var(--white);
+  color: var(--text);
+  cursor: pointer;
+  padding: 18px 25px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  transition: 0.3s;
 }
 
-.badge-delay {
+.accordion.active { border-bottom-left-radius: 0; border-bottom-right-radius: 0; margin-bottom: 0; color: var(--primary); }
+
+.icon::after { content: '+'; color: var(--primary); font-size: 1.4rem; }
+.accordion.active .icon::after { content: '−'; }
+
+.panel {
+  background: var(--white);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 0 20px;
+  margin-bottom: 10px;
+}
+
+/* =====================
+   REGALO DE REYES
+===================== */
+.gift-card {
+  border: 2px solid #fbbf24;
+  background-color: #fffbeb;
+  position: relative;
+}
+
+.badge-gift {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0; right: 0;
   background: #ef4444;
   color: white;
-  font-size: 0.75rem;
   padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
   border-bottom-left-radius: 12px;
-  font-weight: bold;
 }
 
-.colageno-content ul {
-  list-style: none;
-  margin-top: 10px;
-}
-
-.colageno-content li::before {
-  content: "✓";
-  color: var(--accent);
-  margin-right: 8px;
-  font-weight: bold;
-}
+.check-list { list-style: none; margin-top: 10px; }
+.check-list li { margin-bottom: 8px; position: relative; padding-left: 25px; }
+.check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+.check-list li.tip { padding-left: 0; margin-top: 12px; color: #065f46; }
+.check-list li.tip::before { content: ''; }
 
 /* =====================
-   RULES LIST
+   NORMAS Y FOOTER
 ===================== */
-.rules-list {
-  list-style: none;
-}
+.rules-list { list-style: none; }
+.rules-list li { padding: 12px; background: #f1f5f9; margin-bottom: 8px; border-radius: 10px; display: flex; align-items: center; }
+.rules-list span { margin-right: 12px; }
 
-.rules-list li {
-  padding: 12px;
-  background: #fff1f2;
-  margin-bottom: 8px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-}
+.footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.9rem; }
 
-.rules-list span {
-  margin-right: 12px;
-  font-size: 1.2rem;
-}
-
-/* =====================
-   FOOTER
-===================== */
-.footer {
-  text-align: center;
-  padding: 40px 20px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.footer strong {
-  color: var(--primary-dark);
-}
 
 
 
