@@ -5,9 +5,10 @@ accordions.forEach(acc => {
     this.classList.toggle("active");
     const panel = this.nextElementSibling;
     
-    if(panel.style.maxHeight){
+    if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
     } else {
+      // Calculamos el scrollHeight para que se abra suavemente
       panel.style.maxHeight = panel.scrollHeight + "px";
     }
   });
