@@ -1,0 +1,257 @@
+/* =====================
+   RESET Y VARIABLES
+===================== */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --accent: #10b981;
+  --bg: #f8fafc;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --white: #ffffff;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.025em;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* =====================
+   INTRO & CARDS
+===================== */
+.intro-text {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.section-card {
+  background: var(--white);
+  padding: 24px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+
+.section-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  color: var(--primary-dark);
+}
+
+/* =====================
+   ACCORDION
+===================== */
+.accordion-container {
+  margin-bottom: 30px;
+}
+
+.accordion {
+  background-color: var(--white);
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 20px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.accordion:hover {
+  transform: translateY(-2px);
+  background-color: #f1f5f9;
+}
+
+.accordion.active {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0;
+  color: var(--primary);
+}
+
+/* Plus/Minus Icon */
+.icon::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+.accordion.active .icon::after {
+  content: '−';
+}
+
+.panel {
+  background: var(--white);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin-bottom: 15px;
+  padding: 0 20px;
+}
+
+/* =====================
+   EXERCISE GRID
+===================== */
+.grid-exercises {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+@media (min-width: 600px) {
+  .grid-exercises { grid-template-columns: 1fr 1fr; }
+}
+
+.exercise {
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.exercise img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.exercise p {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.reps {
+  display: block;
+  color: var(--primary);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* =====================
+   HIGHLIGHT CARD (COLÁGENO)
+===================== */
+.highlight-card {
+  border: 2px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-delay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-bottom-left-radius: 12px;
+  font-weight: bold;
+}
+
+.colageno-content ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.colageno-content li::before {
+  content: "✓";
+  color: var(--accent);
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+/* =====================
+   RULES LIST
+===================== */
+.rules-list {
+  list-style: none;
+}
+
+.rules-list li {
+  padding: 12px;
+  background: #fff1f2;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.rules-list span {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+/* =====================
+   FOOTER
+===================== */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer strong {
+  color: var(--primary-dark);
+}
+
+
+
+
+
